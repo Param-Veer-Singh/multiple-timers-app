@@ -23,12 +23,9 @@ set.addEventListener("click",()=>{
         </div>
         <button class="delete btn" >Delete</button>
     `
-    console.log(typeof hour.textContent);
-    console.log(typeof minutes.textContent);
-    console.log(typeof seconds.textContent);
-    console.log(totalTimeInSec);
     
     timers.appendChild(newTimer);
+    noTimersLine.style.display = "none";
         
     const newTimerHour = document.querySelectorAll(".newTimerHour");
     const newTimerMinutes = document.querySelectorAll(".newTimerMinutes");
@@ -37,6 +34,9 @@ set.addEventListener("click",()=>{
     const deleteBtn = document.querySelectorAll(".delete");
     deleteBtn[deleteBtn.length - 1].addEventListener("click",()=>{
         timers.removeChild(newTimer);
+        if(timers.childElementCount === 1){
+            noTimersLine.style.display = "initial";
+        }
     })
 
     var id = setInterval(()=>{
@@ -62,12 +62,16 @@ set.addEventListener("click",()=>{
             stopBtn[stopBtn.length - 1].addEventListener("click",()=>{
                 timers.removeChild(newTimer);
                 stopAudioAlert();
+
+                if(timers.childElementCount === 1){
+                    noTimersLine.style.display = "initial";
+                }
             })
             playAudioAlert();
         }
     },1000);
 
-    noTimersLine.remove();
+    
 });
     
 const audio = new Audio('./alert.mp3'); // Replace with the path to your audio file

@@ -11,6 +11,8 @@
     text-align: center;
 }
 .set-timer{
+    display: flex;
+    align-items: center;
     margin: 10px;
     padding: 20px;
     background: rgba(52, 52, 74, 1);
@@ -40,6 +42,8 @@
 
 }
 .timer{
+    display: flex;
+    align-items: center;
     width: 200px;
     font-family: Roboto;
     font-size: 48px;
@@ -65,7 +69,7 @@
 .container{
     margin: 0 !important;
     width: 100vw;
-    height: fit-content;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,5 +122,13 @@
         width: 300px;
         border-radius: 20px;
         justify-content: space-between;
+    }
+    .main-head{
+        margin-top: 30px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 42px;
+        letter-spacing: 0em;
+        text-align: center;
     }
 }
