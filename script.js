@@ -54,16 +54,26 @@ set.addEventListener("click",()=>{
             clearInterval(id);
             newTimer.innerHTML = `
             <h4>Timer is Up!</h4>
-            <button class="stop btn" >Delete</button>
+            <button class="stop btn" >Stop</button>
             `
             newTimer.classList.add("times-up");
             
             const stopBtn = document.querySelectorAll(".stop");
             stopBtn[stopBtn.length - 1].addEventListener("click",()=>{
                 timers.removeChild(newTimer);
+                stopAudioAlert();
             })
-
+            playAudioAlert();
         }
     },1000);
+
+    noTimersLine.remove();
 });
     
+const audio = new Audio('./alert.mp3'); // Replace with the path to your audio file
+function playAudioAlert() {
+    audio.play();
+}
+function stopAudioAlert(){
+    audio.pause();
+}

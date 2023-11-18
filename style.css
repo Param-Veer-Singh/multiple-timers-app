@@ -11,16 +11,16 @@
     text-align: center;
 }
 .set-timer{
-    margin: 30px;
-    padding: 50px;
+    margin: 10px;
+    padding: 20px;
     background: rgba(52, 52, 74, 1);
-    /* width: 80%; */
+    width: 600px;
     height: 100px;
     border-radius: 20px;
     justify-content: space-between;
 }
 .set-timer>div>h4{
-    margin-inline : 50px;
+    margin-inline : 20px;
     font-family: Roboto;
     font-size: 24px;
     font-weight: 500;
@@ -40,6 +40,7 @@
 
 }
 .timer{
+    width: 200px;
     font-family: Roboto;
     font-size: 48px;
     font-weight: 500;
@@ -77,4 +78,45 @@
 .times-up > button{
     background-color: rgba(52, 52, 74, 1) !important;
     color: white !important;
+}
+
+@media screen and (max-width : 600px) {
+    .timer{
+        width: 100px;
+        font-family: Roboto;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 56px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+
+    .set-timer>div>h4{
+        margin-inline : 20px;
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+        letter-spacing: 0em;
+        text-align: left;
+    
+    }
+
+    .set ,.delete ,.stop{
+        margin-inline: 20px;
+        width: 70px;
+        padding: 8px;
+        border-radius: 30px !important;
+        background-color:rgba(240, 247, 87, 1) !important;
+    }
+
+    .set-timer{
+        margin: 10px;
+        padding: 10px;
+        background: rgba(52, 52, 74, 1);
+        height: 80px;
+        width: 300px;
+        border-radius: 20px;
+        justify-content: space-between;
+    }
 }
