@@ -40,13 +40,26 @@ set.addEventListener("click",()=>{
     })
 
     var id = setInterval(()=>{
-        const h = Math.floor(totalTimeInSec / 3600);
-        const m = Math.floor((totalTimeInSec % 3600)/60);
-        const s = Math.floor(totalTimeInSec % 60);
+        const h = (Math.floor(totalTimeInSec / 3600));
+        const m = (Math.floor((totalTimeInSec % 3600)/60));
+        const s = (Math.floor(totalTimeInSec % 60));
 
-        newTimerHour[newTimerHour.length - 1].textContent = h;
-        newTimerMinutes[newTimerMinutes.length - 1].textContent = m;
-        newTimerSeconds[newTimerSeconds.length - 1].textContent = s;
+        let hs = h.toString();
+        let ms = m.toString();
+        let ss = s.toString();
+        if(h < 10){
+           hs = "0" + hs;
+        }
+        if(m < 10){
+            ms = "0" + ms;
+        }
+        if(s < 10){
+           ss = "0" + ss;
+        }
+        
+        newTimerHour[newTimerHour.length - 1].textContent = hs;
+        newTimerMinutes[newTimerMinutes.length - 1].textContent = ms;
+        newTimerSeconds[newTimerSeconds.length - 1].textContent = ss;
 
         totalTimeInSec--;
 
