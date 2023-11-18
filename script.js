@@ -23,35 +23,45 @@ set.addEventListener("click",()=>{
         </div>
         <button class="delete btn" >Delete</button>
     `
-
-    function createNewTimer(){
-
-    }
+    console.log(typeof hour.textContent);
+    console.log(typeof minutes.textContent);
+    console.log(typeof seconds.textContent);
+    console.log(totalTimeInSec);
+    
     timers.appendChild(newTimer);
         
     const newTimerHour = document.querySelectorAll(".newTimerHour");
-    const newTimerMinutes = document.querySelector(".newTimerMinutes");
-    const newTimerSeconds = document.querySelector(".newTimerSeconds");
+    const newTimerMinutes = document.querySelectorAll(".newTimerMinutes");
+    const newTimerSeconds = document.querySelectorAll(".newTimerSeconds");
     
-    
+    const deleteBtn = document.querySelectorAll(".delete");
+    deleteBtn[deleteBtn.length - 1].addEventListener("click",()=>{
+        timers.removeChild(newTimer);
+    })
+
     var id = setInterval(()=>{
         const h = Math.floor(totalTimeInSec / 3600);
-        const m = Math.floor(totalTimeInSec / 60);
+        const m = Math.floor((totalTimeInSec % 3600)/60);
         const s = Math.floor(totalTimeInSec % 60);
-        
-        console.log(h);
-        console.log(m);
-        console.log(s);
 
-        newTimerHour.textContent = h;
-        newTimerMinutes.textContent = m;
-        newTimerSeconds.textContent = s;
+        newTimerHour[newTimerHour.length - 1].textContent = h;
+        newTimerMinutes[newTimerMinutes.length - 1].textContent = m;
+        newTimerSeconds[newTimerSeconds.length - 1].textContent = s;
 
         totalTimeInSec--;
 
         if(totalTimeInSec < 0){
             clearInterval(id);
-
+            newTimer.innerHTML = `
+            <h4>Timer is Up!</h4>
+            <button class="stop btn" >Delete</button>
+            `
+            newTimer.classList.add("times-up");
+            
+            const stopBtn = document.querySelectorAll(".stop");
+            stopBtn[stopBtn.length - 1].addEventListener("click",()=>{
+                timers.removeChild(newTimer);
+            })
 
         }
     },1000);
